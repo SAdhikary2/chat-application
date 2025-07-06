@@ -3,6 +3,7 @@ const cors = require("cors");
 require("dotenv").config();
 const connectDB = require("./config/connectDB");
 const router = require("./routes/index");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 app.use(
@@ -12,7 +13,8 @@ app.use(
   })
 );
 
-app.use(express.json())
+app.use(express.json());
+app.use(cookieParser());
 
 //api end points
 app.use("/api", router);
